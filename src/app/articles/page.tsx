@@ -1,7 +1,7 @@
-import { ArticleCard } from "../components/article-card";
-import { PaginationComponent } from "../components/pagination";
+import { ArticleCard } from "../../components/article-card";
+import { PaginationComponent } from "../../components/pagination";
 
-export default function Home() {
+export default function Article() {
   return (
     <>
       <h2 className={`text-xl font-bold mb-8`}>Recent blog posts</h2>
