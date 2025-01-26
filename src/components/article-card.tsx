@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import exampleImage from "../../public/assets/images/Black Laptop Computer Photo.jpg";
+import exampleImage from "../../public/assets/images/Silver iMac iPhone Photo.jpg";
 import { cn } from "../lib/utils";
 import { ArrowUpRight } from "lucide-react";
 import { ArticleStatus } from "../enums/article-status.enum";
