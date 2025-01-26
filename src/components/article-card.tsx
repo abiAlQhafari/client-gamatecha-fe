@@ -42,6 +42,7 @@ export function ArticleCard({
         <CardHeader className="p-0">
           <Image
             width={300}
+            height={200}
             src={imageUrl || exampleImage}
             alt={`Card Image`}
             className="h-full w-full object-cover"

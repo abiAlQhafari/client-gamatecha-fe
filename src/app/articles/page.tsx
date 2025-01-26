@@ -113,7 +113,7 @@ export default function Article() {
         </Button>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center justify-items-center pb-20 gap-4 md:gap-2 font-[family-name:var(--font-geist-sans)]">
-        {data?.map((article: Partial<Article>) => (
+        {data?.data?.map((article: Partial<Article>) => (
           <ArticleCard
             key={article.id}
             title={`${article?.title?.slice(0, 50)}...`}
