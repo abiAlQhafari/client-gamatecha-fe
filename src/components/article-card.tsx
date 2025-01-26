@@ -1,4 +1,9 @@
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import exampleImage from "../../public/assets/images/Black Laptop Computer Photo.jpg";
+import { ArticleStatus } from "../enums/article-status.enum";
+import { cn } from "../lib/utils";
 import {
   Card,
   CardContent,
@@ -7,10 +12,6 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import exampleImage from "../../public/assets/images/Black Laptop Computer Photo.jpg";
-import { cn } from "../lib/utils";
-import { ArrowUpRight } from "lucide-react";
-import { ArticleStatus } from "../enums/article-status.enum";
 
 interface ArticleProps {
   className?: string;
@@ -31,14 +32,14 @@ export function ArticleCard({
   title,
   description,
   imageUrl,
-  author,
-  readTime,
-  status,
   ...props
 }: ArticleProps) {
   return (
-    <>
-      <Card className={cn("hover:bg-white/5", className)} {...props}>
+    <Link href={`/articles/${props.slug}`}>
+      <Card
+        className={cn("hover:bg-white/5 hover:cursor-pointer", className)}
+        {...props}
+      >
         <CardHeader className="p-0">
           <Image
             width={300}
@@ -53,14 +54,15 @@ export function ArticleCard({
             <CardTitle>{title || ""}</CardTitle>
             <ArrowUpRight />
           </div>
-          <CardDescription className={`line-clamp-3 text-xs`}>
-            {description || ""}
-          </CardDescription>
+          <CardDescription
+            className={`line-clamp-3 text-justify text-xs`}
+            dangerouslySetInnerHTML={{ __html: description || "" }}
+          />
           <CardFooter className="p-0">
             <p>Article Footer</p>
           </CardFooter>
         </CardContent>
       </Card>
-    </>
+    </Link>
   );
 }
