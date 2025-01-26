@@ -10,30 +10,50 @@ import {
 import exampleImage from "../../public/assets/images/Black Laptop Computer Photo.jpg";
 import { cn } from "../lib/utils";
 import { ArrowUpRight } from "lucide-react";
+import { ArticleStatus } from "../enums/article-status.enum";
+
+interface ArticleProps {
+  className?: string;
+  title?: string;
+  slug?: string;
+  description?: string;
+  imageUrl?: string;
+  author?: {
+    name?: string;
+    avatar?: string;
+  };
+  status?: ArticleStatus;
+  readTime?: string;
+}
 
 export function ArticleCard({
   className,
+  title,
+  description,
+  imageUrl,
+  author,
+  readTime,
+  status,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+}: ArticleProps) {
   return (
     <>
       <Card className={cn("hover:bg-white/5", className)} {...props}>
         <CardHeader className="p-0">
           <Image
             width={300}
-            src={exampleImage}
+            src={imageUrl || exampleImage}
             alt={`Card Image`}
             className="h-full w-full object-cover"
           />
         </CardHeader>
         <CardContent className="p-4 flex flex-col gap-4">
           <div className="flex justify-between">
-            <CardTitle>UX review presentations</CardTitle>
+            <CardTitle>{title || ""}</CardTitle>
             <ArrowUpRight />
           </div>
           <CardDescription className={`line-clamp-3 text-xs`}>
-            How do you create compelling presentations that wow your colleagues
-            and impress your managers?
+            {description || ""}
           </CardDescription>
           <CardFooter className="p-0">
             <p>Article Footer</p>
