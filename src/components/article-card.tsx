@@ -38,7 +38,7 @@ export function ArticleCard({
 }: ArticleProps) {
   return (
     <>
-      <Card className={cn("hover:bg-white/5", className)} {...props}>
+      <Card className={cn("hover:bg-white/5 border-0", className)} {...props}>
         <CardHeader className="p-0">
           <Image
             width={300}
